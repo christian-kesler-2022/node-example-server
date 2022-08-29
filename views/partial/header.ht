@@ -11,13 +11,19 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="views/styles/layout.css"
-    />
+    <style>
+      code {
+        margin: 16px;
+        background-color: lightgrey;
+        padding: 4px;
+      }
+      p {
+        margin: 8px;
+      }
+    </style>
   </head>
   <body>
-    <header>
+    <header style="min-height:32vh">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
@@ -34,17 +40,17 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="/nodejs">NodeJS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="/bootstrap">Bootstrap</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="/typescript">Typescript</a>
               </li>
             </ul>
           </div>
@@ -54,11 +60,10 @@
 
       <!-- Jumbotron -->
       <div class="p-5 text-center bg-light">
-        <h1 class="mb-3">Heading</h1>
-        <h4 class="mb-3">Subheading</h4>
-        <a class="btn btn-primary" href="" role="button">Call to action</a>
+        <h1 class="mb-3">Example Node Server</h1>
+        <h4 class="mb-3">Created by Christian Kesler</h4>
       </div>
       <!-- Jumbotron -->
     </header>
 
-    <div style="min-height:30vh">
+    <div style="min-height:30vh; padding: 1vh;">

@@ -1,0 +1,109 @@
+<h2>NodeJS - an explanatory Cheat Sheet</h2>
+<hr />
+<h3>Setup</h3>
+<i
+  >(note, if you want to read the official documentation, check out the footer
+  for relevant links)</i
+>
+<hr />
+<p>
+  Usually these kinds of things are kicked off with an entire section or
+  paragraph talking about "what exactly is nodejs?". I'm not going to do that.
+  NodeJS interprets and executes the Javascript programming lagnuage, just like
+  Python does for the Python programming language. That's really all it is.
+</p>
+<p>
+  Odds are you want to use NodeJS to make a web server, so let's focus on that
+  (which Node is actually pretty good at). Unless you are some ridiculous
+  prodigy who never programs any bugs, the first thing you'll need is node
+  installed on your machine for development purposes. If you are on Linux, odds
+  are the terminal command below will install node for you successfully:
+</p>
+<code>sudo apt install nodejs</code>
+<p>
+  If that doesn't work or you use Mac/Windows, then your best bet is downloading
+  and running the installer from the official site here ->
+  <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
+</p>
+<p>
+  You'll also want a good IDE like VSC or Atom, but there are others you can use
+  as well. If you aren't sure which one you want to try or don't feel like
+  installing an IDE, there are some cool web based options like
+  <a href="https://stackblitz.com/">Stackblitz</a> that you can use.
+</p>
+
+<h3>Getting Started</h3>
+<p>
+  Alright, you have access to an IDE that has Node installed. Now what? Well, we
+  make some basic files to double check our setup. First, run the following
+  command in the terminal to verify Node is installed:
+</p>
+<code>node -v</code>
+<p>
+  It should say something like "v16.14.2" afterwards. If it gives you an error
+  instead of a version, then you need to go back and install Node properly.
+</p>
+<p>
+  If Node is installed properly, we can check to see if it is working properly.
+  Make a file named 'index.js' and add the following lines of code:
+</p>
+<code>console.log(`Hello Node.js v${process.versions.node}!`);</code>
+<p>Save the file and run the next command in the terminal:</p>
+<code>node index</code>
+<p>
+  You should get some output that looks like "Hello Node.js v16.14.2!". If that
+  doesn't work, then something in Node isn't working properly.
+</p>
+
+<h3>Making a Server</h3>
+<p>
+  Let's make a simple server. Going into index.js, you can add the following
+  code.
+</p>
+
+<code>var http = require('http');</code><br />
+<code>var server = http.createServer(function (req, res) { </code><br />
+<code>console.log('requested url: ' + req.url); </code><br />
+<code>if (req.url === '/') { </code><br />
+<code>res.write("Your first Node page");</code><br />
+<code>res.end();</code><br />
+<code>} });</code><br />
+<code>server.listen(1000, '127.0.0.1');</code>
+
+<p>
+  This is going to do a couple of things. Firstly, we require the http
+  module/library/class in order to access the web server functionality built
+  into node. Don't worry about installing anything else in addition to Node,
+  this one comes built in. After we have it loaded in, we can access the
+  createServer function and define some handling within that server. It takes
+  two inputs, req (request) and res (response). These are the basic building
+  blocks used for handling network traffic. I added a line that prints the url
+  accessed by the user to the console, but that's more for development and
+  debugging than core functionality. After that the if statement checks the url
+  the user is accessing. If it is the homepage, then we can write to the
+  response some plain text that the user will see.
+</p>
+<p>
+  The last thing at the bottom boots the server up and sets it to listen at a
+  specific address, including ip and port. Save this file and run it from the
+  terminal again. This time it should wait rather than complete execution,
+  meaning you'll need to press ctrl+C from the terminal to interrupt the server
+  before you can run other commands. Before you do that, head on over to your
+  localhost url at port 1000 like below in your browser of choice. (if you are
+  using stackblitz, they provide an easy popup window with the url prepopulated)
+</p>
+<code>127.0.0.1:1000</code>
+<p>It should load up pretty quick and show you "Your first Node page".</p>
+
+<h3>Better pages</h3>
+<p>
+  Hopefully you know a bit about HTML and CSS already. This section involves
+  reading data from an HTML page and displaying in the browser. Go ahead and
+  make a file named 'index.html', add some content, and save it. Rather than
+  writing plain text into our response, we want to do the following:
+</p>
+<code>res.writeHead(200, { 'Content-Type': 'text/html' });</code><br />
+<code>var content = fs.readFileSync(__dirname + 'index.html', 'utf8');</code
+><br />
+<code>res.write(content);</code><br />
+<code>res.end();</code><br />
