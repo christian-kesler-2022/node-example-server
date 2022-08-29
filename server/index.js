@@ -32,4 +32,4 @@ var server = http.createServer(function (req, res) {
   }
 });
 
-server.listen(1000, '127.0.0.1');
+server.listen(1000);
