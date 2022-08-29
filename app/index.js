@@ -21,16 +21,29 @@ function writePage(res, file) {
 var server = http.createServer(function (req, res) {
   console.log('requested url: ' + req.url);
 
+  // Homepage
   if (req.url === '/') {
     writePage(res, '/views/homepage.html');
-  } else if (req.url === '/nodejs') {
-    writePage(res, '/views/nodejs.html');
-  } else if (req.url === '/bootstrap') {
-    writePage(res, '/views/bootstrap.html');
-  } else if (req.url === '/typescript') {
-    writePage(res, '/views/typescript.html');
-  } else if (req.url === '/docker') {
-    writePage(res, '/views/docker.html');
+
+    // Guides directory
+  } else if (req.url === '/guides') {
+    writePage(res, '/views/guides.html');
+
+    // Guide pages
+  } else if (req.url === '/guides/nodejs') {
+    writePage(res, '/views/guides/nodejs.html');
+  } else if (req.url === '/guides/bootstrap') {
+    writePage(res, '/views/guides/bootstrap.html');
+  } else if (req.url === '/guides/typescript') {
+    writePage(res, '/views/guides/typescript.html');
+  } else if (req.url === '/guides/docker') {
+    writePage(res, '/views/guides/docker.html');
+
+    // Demos directory
+  } else if (req.url === '/demos') {
+    writePage(res, '/views/demos.html');
+
+    // Demo pages
   }
 });
 
