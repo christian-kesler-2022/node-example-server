@@ -29,6 +29,8 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/views/bootstrap.html');
   } else if (req.url === '/typescript') {
     writePage(res, '/views/typescript.html');
+  } else if (req.url === '/docker') {
+    writePage(res, '/views/docker.html');
   }
 });
 

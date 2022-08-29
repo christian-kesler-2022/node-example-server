@@ -52,6 +52,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/typescript">Typescript</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/docker">Docker</a>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,0 +1,110 @@
+<h2>Docker - a quickstart guide</h2>
+<hr />
+
+<h3>Preliminary Setup</h3>
+<hr />
+<p>
+  Docker is a containerization engine, and I'm not going to explain what that
+  means in great detail. What this guide cares about is setting up and running a
+  container on a web server with a web application in it that can be accessed by
+  the host. This can be tricky if you don't know what you're doing since things
+  running inside containers are typically segregated from host processes.
+</p>
+<p>
+  First thing you need is a server. This can be your local machine, a virtual
+  machine, an EC2 instance on AWS, or you can use this neat little resource I
+  enjoy here ->
+  <a href="https://labs.play-with-docker.com/"
+    >https://labs.play-with-docker.com/</a
+  >
+  which lets you play in a virtual environment that has docker installed. I
+  strongly recommend you use a linux based instance, and additionaly I prefer
+  ubuntu.
+</p>
+<p>
+  Once you are in the server terminal, you'll need to acquire the source code.
+  We'll be using Git to do so.
+</p>
+
+<h3>Installing Git</h3>
+<p>In order to install Git on most linux distros, use the following command:</p>
+<code>sudo apt install git</code>
+<p>
+  Now make an empty directory wherever you like and enter it. Once inside, run
+  the following command to initialize an empty Git repository:
+</p>
+<code>git init</code>
+<p>
+  With the local repository initiaized, we can now add a url destination to
+  communicate with. If you have a project in mind, feel free to use a link to
+  that on a platform such as GitHub. If you need a repo to use, feel free to use
+  the source code for this server at the following url ->
+  <a href="https://github.com/christian-kesler-2022/node-example-server"
+    >https://github.com/christian-kesler-2022/node-example-server</a
+  >. Regardless, use the following command with a url of your choice to
+  designate the project origin:<br /><i
+    >note: the ${} characters indicate a variable; don't actually use those
+    characters in your command</i
+  >
+</p>
+<code>git remote add origin ${URL}</code>
+<p>
+  The last thing we need to do is actually pull down the source code from the
+  main branch, which is done with the following command:
+</p>
+<code>git pull origin main</code>
+<p>
+  Which should be relatively quick. Once completed, your previously emopty
+  project directory will be filled with the source code for your project.
+</p>
+
+<h3>Using Docker</h3>
+<p>
+  I'm going to assume you have Docker installed on your machine. If not, follow
+  this link for guidance ->
+  <a href="https://docs.docker.com/engine/install/ubuntu"
+    >https://docs.docker.com/engine/install/ubuntu</a
+  >. Once you have Docker installed, we need to build an image from our source
+  code. Do so with the following command:
+</p>
+<code>docker build . -t ${NAME}</code>
+<p>
+  You can call the image whatever you want, just make sure you don't randomly
+  smash the keyboard cause you'll need it to run the container. Now, if you are
+  using the GitHub link I provided for your source code, the container port will
+  be 1000. If you got your source code from somewhere else, you'll have to
+  figure out what port(s) the application is listening to. The host port can be
+  whatever you like, but I (arbitrarily) recommend 1000. Run your container with
+  the following command:
+</p>
+<code>docker run -d -p ${HOST PORT}:${CONTAINER PORT} ${NAME}</code>
+<p>
+  The -d tag allows the container to run detached, freeing up your terminal for
+  other commands so your command line doesn't have to hang there waiting for
+  requests. The -p tag lets us map ports between the host and container.
+</p>
+
+<h3>Verifying the Server</h3>
+<p>
+  It's pretty easy to verify that your server is working, just use the following
+  command:
+</p>
+<code>curl localhost:${HOST PORT}</code>
+<p>
+  It should return an html page or something else depending on the design of the
+  server. But we still need to test it out from the internet, so find your
+  machine's IP address, make sure your server is connected to the internet, and
+  get onto another machine that is connected to the internet. Enter the server's
+  IP in the url followed by the port like so:
+</p>
+<code>${SERVER IP}:${HOST PORT}</code>
+<p>
+  If this doesn't work, it may be due to a firewall restriction on your server.
+  You can remove this restriction with the following command:
+</p>
+<code>sudo ufe allow ${HOST PORT}</code>
+<p>
+  Once you can access your server from another device, you can rest assured
+  knowing that you took all these steps properly and have successfully created a
+  containerized web server.
+</p>
