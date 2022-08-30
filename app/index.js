@@ -18,6 +18,31 @@ function writePage(res, file) {
   res.end();
 }
 
+function writeIframe(res, file) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  var content = fs.readFileSync(__dirname + file, 'utf8');
+  res.write(content);
+  res.end();
+}
+
+function showDir(res, dir) {
+  fs.readdir(dir, function (err, files) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+
+    if (err) {
+      console.log('Unable to scan directory: ' + err);
+      res.write('Unable to scan directory: ' + err);
+    } else {
+      res.write("<a href='/demos/sort/iframe/input-dir'>Refresh</a><br>");
+      res.write('================<br>');
+      files.forEach(function (file) {
+        res.write(file + '<br>');
+      });
+      res.write('================');
+    }
+    res.end();
+  });
+}
 var server = http.createServer(function (req, res) {
   console.log('requested url: ' + req.url);
 
@@ -44,6 +69,12 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/views/demos.html');
 
     // Demo pages
+  } else if (req.url === '/demos/sort') {
+    writePage(res, '/views/demos/sort.html');
+
+    // Demo iframes
+  } else if (req.url === '/demos/sort/iframe/input-dir') {
+    showDir(res, __dirname + '/utils/demos/sort/input/');
   }
 });
 
