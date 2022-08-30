@@ -1,5 +1,8 @@
 var http = require('http');
 var fs = require('fs');
+var iframes = require('./utils/iframes.js');
+var sort = require('./utils/demos/sort/sort.js');
+var unsort = require('./utils/demos/sort/unsort.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 
@@ -25,24 +28,6 @@ function writeIframe(res, file) {
   res.end();
 }
 
-function showDir(res, dir) {
-  fs.readdir(dir, function (err, files) {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    if (err) {
-      console.log('Unable to scan directory: ' + err);
-      res.write('Unable to scan directory: ' + err);
-    } else {
-      res.write("<a href='/demos/sort/iframe/input-dir'>Refresh</a><br>");
-      res.write('================<br>');
-      files.forEach(function (file) {
-        res.write(file + '<br>');
-      });
-      res.write('================');
-    }
-    res.end();
-  });
-}
 var server = http.createServer(function (req, res) {
   console.log('requested url: ' + req.url);
 
@@ -73,8 +58,22 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/views/demos/sort.html');
 
     // Demo iframes
-  } else if (req.url === '/demos/sort/iframe/input-dir') {
-    showDir(res, __dirname + '/utils/demos/sort/input/');
+  } else if (req.url === '/demos/sort/iframe/input') {
+    iframes.showDir(res, __dirname + '/utils/demos/sort/input/');
+  } else if (req.url === '/demos/sort/iframe/output/pass') {
+    iframes.showDir(res, __dirname + '/utils/demos/sort/output/pass/');
+  } else if (req.url === '/demos/sort/iframe/output/fail') {
+    iframes.showDir(res, __dirname + '/utils/demos/sort/output/fail/');
+
+    // functions
+  } else if (req.url === '/demos/sort/iframe/functions') {
+    writeIframe(res, '/views/demos/sort-functions.html');
+  } else if (req.url === '/demos/sort/iframe/functions/sort') {
+    sort.sortFiles();
+    writeIframe(res, '/views/demos/sort-functions.html');
+  } else if (req.url === '/demos/sort/iframe/functions/unsort') {
+    unsort.unsortFiles();
+    writeIframe(res, '/views/demos/sort-functions.html');
   }
 });
 
