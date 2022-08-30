@@ -3,8 +3,8 @@ var fs = require('fs');
 var iframes = require('./utils/iframes.js');
 var sort = require('./utils/sort.js');
 var unsort = require('./utils/unsort.js');
-var clock = require('./utils/clock.js');
-var fsi = require('./utils/fsi.js');
+var generator = require('./utils/generator.js');
+var validator = require('./utils/validator.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -83,5 +83,6 @@ var server = http.createServer(function (req, res) {
 });
 
 generator.cycle();
+validator.cycle();
 
 server.listen(1000);

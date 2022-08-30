@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var generator = {
   execute: function (callback) {
     const characters =
