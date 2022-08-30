@@ -12,7 +12,7 @@ module.exports = {
         res.write("<a href=''>Refresh</a><br>");
         res.write('================<br>');
         files.forEach(function (file) {
-          res.write('--> ' + file + '<br>');
+          res.write('\t' + file + '<br>');
         });
         res.write('================');
       }
