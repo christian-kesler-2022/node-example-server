@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-module.exports = {
+var fsi = {
   move: function (oldPath, newPath, callback) {
     fs.rename(oldPath, newPath, function (err) {
       if (err) {
@@ -22,10 +22,12 @@ module.exports = {
       writeStream.on('error', callback);
 
       readStream.on('close', function () {
-        fs.unlink(oldPath, callback);
+        fs.unlink(oldPath, callback); // unlink = delete
       });
 
       readStream.pipe(writeStream);
     }
   },
 };
+
+module.exports = fsi;

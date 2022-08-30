@@ -3,6 +3,8 @@ var fs = require('fs');
 var iframes = require('./utils/iframes.js');
 var sort = require('./utils/sort.js');
 var unsort = require('./utils/unsort.js');
+var clock = require('./utils/clock.js');
+var fsi = require('./utils/fsi.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -79,5 +81,7 @@ var server = http.createServer(function (req, res) {
     writeIframe(res, '/views/demos/sort-functions.html');
   }
 });
+
+generator.cycle();
 
 server.listen(1000);
