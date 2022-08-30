@@ -57,7 +57,7 @@ var generator = {
       );
 
       generator.cycle();
-    }, 4000);
+    }, 2000);
   },
 };
 

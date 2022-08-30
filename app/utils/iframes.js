@@ -9,6 +9,12 @@ module.exports = {
         console.log('Unable to scan directory: ' + err);
         res.write('Unable to scan directory: ' + err);
       } else {
+        var content = fs.readFileSync(
+          __dirname + '/../views/demos/sort-iframe.html',
+          'utf8'
+        );
+        res.write(content);
+
         res.write("<a href=''>Refresh</a><br>");
         res.write('================<br>');
         files.forEach(function (file) {
