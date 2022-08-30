@@ -9,7 +9,7 @@ module.exports = {
 
       files.forEach(function (file) {
         if (file.includes('.txt')) {
-          fs.rename(
+          fs.copy(
             __dirname + '/output/pass/' + file,
             __dirname + '/input/' + file,
             function (err) {
@@ -17,6 +17,8 @@ module.exports = {
               console.log('Successfully moved ' + file);
             }
           );
+          fs.unlink(__dirname + '/output/pass/' + file);
+
           console.log(
             __dirname +
               '/output/pass/' +
@@ -37,7 +39,7 @@ module.exports = {
 
       files.forEach(function (file) {
         if (file.includes('.txt')) {
-          fs.rename(
+          fs.copy(
             __dirname + '/output/fail/' + file,
             __dirname + '/input/' + file,
             function (err) {
@@ -45,9 +47,11 @@ module.exports = {
               console.log('Successfully moved ' + file);
             }
           );
+          fs.unlink(__dirname + '/output/fail/' + file);
+
           console.log(
             __dirname +
-              '/output/pass/' +
+              '/output/fail/' +
               file +
               ' --> ' +
               __dirname +

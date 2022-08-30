@@ -10,7 +10,7 @@ module.exports = {
         if (file.includes('.txt')) {
           var content = fs.readFileSync(__dirname + '/input/' + file, 'utf8');
           if (content.includes('3')) {
-            fs.rename(
+            fs.copy(
               __dirname + '/input/' + file,
               __dirname + '/output/pass/' + file,
               function (err) {
@@ -18,10 +18,11 @@ module.exports = {
                 console.log('Successfully moved!');
               }
             );
+            fs.unlink(__dirname + '/input/' + file);
 
             console.log('PASS: ' + file + ' contains the digit 3!');
           } else {
-            fs.rename(
+            fs.copy(
               __dirname + '/input/' + file,
               __dirname + '/output/fail/' + file,
               function (err) {
@@ -29,6 +30,8 @@ module.exports = {
                 console.log('Successfully moved!');
               }
             );
+            fs.unlink(__dirname + '/input/' + file);
+
             console.log('FAIL: ' + file + " doesn't contain the digit 3. . . ");
           }
         }
