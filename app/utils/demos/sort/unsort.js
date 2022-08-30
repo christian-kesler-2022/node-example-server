@@ -9,7 +9,7 @@ module.exports = {
 
       files.forEach(function (file) {
         if (file.includes('.txt')) {
-          fs.copy(
+          fs.copyFile(
             __dirname + '/output/pass/' + file,
             __dirname + '/input/' + file,
             function (err) {
@@ -39,7 +39,7 @@ module.exports = {
 
       files.forEach(function (file) {
         if (file.includes('.txt')) {
-          fs.copy(
+          fs.copyFile(
             __dirname + '/output/fail/' + file,
             __dirname + '/input/' + file,
             function (err) {

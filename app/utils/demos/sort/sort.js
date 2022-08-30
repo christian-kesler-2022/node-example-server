@@ -10,7 +10,7 @@ module.exports = {
         if (file.includes('.txt')) {
           var content = fs.readFileSync(__dirname + '/input/' + file, 'utf8');
           if (content.includes('3')) {
-            fs.copy(
+            fs.copyFile(
               __dirname + '/input/' + file,
               __dirname + '/output/pass/' + file,
               function (err) {
@@ -22,7 +22,7 @@ module.exports = {
 
             console.log('PASS: ' + file + ' contains the digit 3!');
           } else {
-            fs.copy(
+            fs.copyFile(
               __dirname + '/input/' + file,
               __dirname + '/output/fail/' + file,
               function (err) {
