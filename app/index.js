@@ -5,6 +5,7 @@ var sort = require('./utils/demos/sort/sort.js');
 var unsort = require('./utils/demos/sort/unsort.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
+console.log(__dirname);
 
 function writePage(res, file) {
   res.writeHead(200, { 'Content-Type': 'text/html' });

@@ -6,4 +6,6 @@ COPY /app .
 
 EXPOSE 1000/tcp
 
+RUN 'pwd'
+
 CMD ["node", "index"]
