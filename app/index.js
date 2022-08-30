@@ -47,8 +47,10 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/views/guides/bootstrap.html');
   } else if (req.url === '/guides/typescript') {
     writePage(res, '/views/guides/typescript.html');
-  } else if (req.url === '/guides/docker') {
-    writePage(res, '/views/guides/docker.html');
+  } else if (req.url === '/guides/docker/getting-started') {
+    writePage(res, '/views/guides/docker/getting-started.html');
+  } else if (req.url === '/guides/docker/persistent-storage') {
+    writePage(res, '/views/guides/docker/persistent-storage.html');
 
     // Demos directory
   } else if (req.url === '/demos') {
