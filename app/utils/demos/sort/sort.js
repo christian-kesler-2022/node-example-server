@@ -18,7 +18,7 @@ module.exports = {
                 console.log('Successfully moved!');
               }
             );
-            fs.unlink(__dirname + '/input/' + file);
+            // fs.unlink(__dirname + '/input/' + file);
 
             console.log('PASS: ' + file + ' contains the digit 3!');
           } else {
@@ -30,7 +30,7 @@ module.exports = {
                 console.log('Successfully moved!');
               }
             );
-            fs.unlink(__dirname + '/input/' + file);
+            // fs.unlink(__dirname + '/input/' + file);
 
             console.log('FAIL: ' + file + " doesn't contain the digit 3. . . ");
           }

@@ -17,7 +17,7 @@ module.exports = {
               console.log('Successfully moved ' + file);
             }
           );
-          fs.unlink(__dirname + '/output/pass/' + file);
+          // fs.unlink(__dirname + '/output/pass/' + file);
 
           console.log(
             __dirname +
@@ -47,7 +47,7 @@ module.exports = {
               console.log('Successfully moved ' + file);
             }
           );
-          fs.unlink(__dirname + '/output/fail/' + file);
+          // fs.unlink(__dirname + '/output/fail/' + file);
 
           console.log(
             __dirname +
