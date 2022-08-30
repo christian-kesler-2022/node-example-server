@@ -14,7 +14,7 @@ function writePage(res, file) {
   res.write(header);
 
   var content = fs.readFileSync(__dirname + file, 'utf8');
-  res.write(content);
+  res.write(__dirname + '<hr>' + content);
 
   var footer = fs.readFileSync(__dirname + '/views/partial/footer.ht', 'utf8');
   res.write(footer);
