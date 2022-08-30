@@ -1,8 +1,8 @@
 var http = require('http');
 var fs = require('fs');
 var iframes = require('./utils/iframes.js');
-var sort = require('./utils/demos/sort/sort.js');
-var unsort = require('./utils/demos/sort/unsort.js');
+var sort = require('./utils/sort.js');
+var unsort = require('./utils/unsort.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -62,11 +62,11 @@ var server = http.createServer(function (req, res) {
 
     // Demo iframes
   } else if (req.url === '/demos/sort/iframe/input') {
-    iframes.showDir(res, __dirname + '/utils/demos/sort/input/');
+    iframes.showDir(res, __dirname + '/../data/input/');
   } else if (req.url === '/demos/sort/iframe/output/pass') {
-    iframes.showDir(res, __dirname + '/utils/demos/sort/output/pass/');
+    iframes.showDir(res, __dirname + '/../data/output/pass/');
   } else if (req.url === '/demos/sort/iframe/output/fail') {
-    iframes.showDir(res, __dirname + '/utils/demos/sort/output/fail/');
+    iframes.showDir(res, __dirname + '/../data/output/fail/');
 
     // functions
   } else if (req.url === '/demos/sort/iframe/functions') {
