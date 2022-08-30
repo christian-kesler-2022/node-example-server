@@ -5,7 +5,7 @@
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/node-wjjb2n)
 
 COMMANDS:
-
+<code>
 mkdir project
 
 cd project
@@ -21,3 +21,5 @@ git pull origin main
 docker build . -t project
 
 docker run -d -p 1000:1000 -v /root/project/data:/data project
+  
+</code>
