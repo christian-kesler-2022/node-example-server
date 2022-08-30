@@ -10,7 +10,7 @@ module.exports = {
         res.write('Unable to scan directory: ' + err);
       } else {
         var content = fs.readFileSync(
-          __dirname + '/../views/demos/sort-iframe.html',
+          __dirname + '/../views/demos/validator-iframe.html',
           'utf8'
         );
         res.write(content);
