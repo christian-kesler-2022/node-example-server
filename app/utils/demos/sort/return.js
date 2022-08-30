@@ -6,23 +6,25 @@ fs.readdir(__dirname + '/output/pass/', function (err, files) {
   }
 
   files.forEach(function (file) {
-    fs.rename(
-      __dirname + '/output/pass/' + file,
-      __dirname + '/input/' + file,
-      function (err) {
-        if (err) throw err;
-        console.log('Successfully moved ' + file);
-      }
-    );
-    console.log(
-      __dirname +
-        '/output/pass/' +
-        file +
-        ' --> ' +
+    if (file.includes('.txt')) {
+      fs.rename(
+        __dirname + '/output/pass/' + file,
+        __dirname + '/input/' + file,
+        function (err) {
+          if (err) throw err;
+          console.log('Successfully moved ' + file);
+        }
+      );
+      console.log(
         __dirname +
-        '/input/' +
-        file
-    );
+          '/output/pass/' +
+          file +
+          ' --> ' +
+          __dirname +
+          '/input/' +
+          file
+      );
+    }
   });
 });
 
@@ -32,22 +34,24 @@ fs.readdir(__dirname + '/output/fail/', function (err, files) {
   }
 
   files.forEach(function (file) {
-    fs.rename(
-      __dirname + '/output/fail/' + file,
-      __dirname + '/input/' + file,
-      function (err) {
-        if (err) throw err;
-        console.log('Successfully moved ' + file);
-      }
-    );
-    console.log(
-      __dirname +
-        '/output/pass/' +
-        file +
-        ' --> ' +
+    if (file.includes('.txt')) {
+      fs.rename(
+        __dirname + '/output/fail/' + file,
+        __dirname + '/input/' + file,
+        function (err) {
+          if (err) throw err;
+          console.log('Successfully moved ' + file);
+        }
+      );
+      console.log(
         __dirname +
-        '/input/' +
-        file
-    );
+          '/output/pass/' +
+          file +
+          ' --> ' +
+          __dirname +
+          '/input/' +
+          file
+      );
+    }
   });
 });
