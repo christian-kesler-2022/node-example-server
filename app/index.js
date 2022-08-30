@@ -1,8 +1,6 @@
 var http = require('http');
 var fs = require('fs');
 var iframes = require('./utils/iframes.js');
-var sort = require('./utils/sort.js');
-var unsort = require('./utils/unsort.js');
 var generator = require('./utils/generator.js');
 var validator = require('./utils/validator.js');
 
@@ -64,9 +62,6 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/views/demos.html');
 
     // Demo pages
-  } else if (req.url === '/demos/sort') {
-    writePage(res, '/views/demos/sort.html');
-    //
   } else if (req.url === '/demos/validator') {
     writePage(res, '/views/demos/validator-index.html');
     //
@@ -77,30 +72,6 @@ var server = http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<script>window.location.href="/demos/validator";</script>');
     res.end();
-    //
-
-    // Demo iframes
-  } else if (req.url === '/demos/sort/iframe/input') {
-    iframes.showDir(res, __dirname + '/../data/input/');
-    //
-  } else if (req.url === '/demos/sort/iframe/output/pass') {
-    iframes.showDir(res, __dirname + '/../data/output/pass/');
-    //
-  } else if (req.url === '/demos/sort/iframe/output/fail') {
-    iframes.showDir(res, __dirname + '/../data/output/fail/');
-    //
-
-    // functions
-  } else if (req.url === '/demos/sort/iframe/functions') {
-    writeIframe(res, '/views/demos/sort-functions.html');
-    //
-  } else if (req.url === '/demos/sort/iframe/functions/sort') {
-    sort.sortFiles();
-    writeIframe(res, '/views/demos/sort-functions.html');
-    //
-  } else if (req.url === '/demos/sort/iframe/functions/unsort') {
-    unsort.unsortFiles();
-    writeIframe(res, '/views/demos/sort-functions.html');
     //
 
     // Validator Demo
@@ -118,11 +89,6 @@ var server = http.createServer(function (req, res) {
     //
   } else if (req.url === '/demos/validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../data/output/pass/');
-    //
-
-    // functions
-  } else if (req.url === '/demos/validator/iframe/start') {
-    writeIframe(res, '/views/demos/sort-functions.html');
     //
   }
 });
