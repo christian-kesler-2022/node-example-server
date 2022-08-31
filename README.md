@@ -1,10 +1,11 @@
 <h1>Example Node Server</h1>
 
-# node-wjjb2n
+[Edit on StackBlitz ⚡️](https://stackblitz.com)
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/node-wjjb2n)
-
-COMMANDS:
+<h2>Description</h2>
+<p>This project is a web server built in node to hold short guides/resources on technologies used in the project</p>
+<h2>Getting Started</h2>
+<p>You can run these commands from most unix terminals to start up the server in a container with persistent storage on the host</p>
 
 <code>
 
