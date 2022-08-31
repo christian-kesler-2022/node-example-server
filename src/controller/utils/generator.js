@@ -19,12 +19,16 @@ var generator = {
 
     content = generateString(5);
 
-    fs.writeFile('../data/input/' + content + '.txt', content, function (err) {
-      if (err) {
-        callback(err);
+    fs.writeFile(
+      __dirname + '/../../model/input/' + content + '.txt',
+      content,
+      function (err) {
+        if (err) {
+          console.log(err);
+        }
+        console.log('File is created successfully.');
       }
-      console.log('File is created successfully.');
-    });
+    );
   },
   cycle: function (callback) {
     setTimeout(function () {
@@ -46,11 +50,11 @@ var generator = {
       content = generateString(5);
 
       fs.writeFile(
-        '../data/input/' + content + '.txt',
+        __dirname + '/../../model/input/' + content + '.txt',
         content,
         function (err) {
           if (err) {
-            callback(err);
+            console.log(err);
           }
           console.log('File is created successfully.');
         }

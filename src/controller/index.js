@@ -10,22 +10,21 @@ console.log(__dirname);
 function writePage(res, file) {
   res.writeHead(200, { 'Content-Type': 'text/html' });
 
-  var header = fs.readFileSync(__dirname + '/views/partial/header.ht', 'utf8');
+  var header = fs.readFileSync(
+    __dirname + '/../views/partial/header.ht',
+    'utf8'
+  );
   res.write(header);
 
   var content = fs.readFileSync(__dirname + file, 'utf8');
   res.write(content);
 
-  var footer = fs.readFileSync(__dirname + '/views/partial/footer.ht', 'utf8');
+  var footer = fs.readFileSync(
+    __dirname + '/../views/partial/footer.ht',
+    'utf8'
+  );
   res.write(footer);
 
-  res.end();
-}
-
-function writeIframe(res, file) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  var content = fs.readFileSync(__dirname + file, 'utf8');
-  res.write(content);
   res.end();
 }
 
@@ -34,36 +33,30 @@ var server = http.createServer(function (req, res) {
 
   // Homepage
   if (req.url === '/') {
-    writePage(res, '/views/homepage.html');
+    writePage(res, '/../views/homepage.html');
 
     // Guides directory
   } else if (req.url === '/guides') {
-    writePage(res, '/views/guides.html');
+    writePage(res, '/../views/guides/guides.html');
 
     // Guide pages
   } else if (req.url === '/guides/nodejs') {
-    writePage(res, '/views/guides/nodejs.html');
-    //
-  } else if (req.url === '/guides/bootstrap') {
-    writePage(res, '/views/guides/bootstrap.html');
-    //
-  } else if (req.url === '/guides/typescript') {
-    writePage(res, '/views/guides/typescript.html');
+    writePage(res, '/../views/guides/nodejs/nodejs.html');
     //
   } else if (req.url === '/guides/docker/getting-started') {
-    writePage(res, '/views/guides/docker/getting-started.html');
+    writePage(res, '/../views/guides/docker/getting-started.html');
     //
   } else if (req.url === '/guides/docker/persistent-storage') {
-    writePage(res, '/views/guides/docker/persistent-storage.html');
+    writePage(res, '/../views/guides/docker/persistent-storage.html');
     //
 
     // Demos directory
   } else if (req.url === '/demos') {
-    writePage(res, '/views/demos.html');
+    writePage(res, '/../views/demos/demos.html');
 
     // Demo pages
   } else if (req.url === '/demos/validator') {
-    writePage(res, '/views/demos/validator-index.html');
+    writePage(res, '/../views/demos/text-validator/text-validator.html');
     //
   } else if (req.url === '/demos/validator/start') {
     generator.cycle();
@@ -76,19 +69,19 @@ var server = http.createServer(function (req, res) {
 
     // Validator Demo
   } else if (req.url === '/demos/validator/iframe/input') {
-    iframes.showDir(res, __dirname + '/../data/input/');
+    iframes.showDir(res, __dirname + '/../model/input/');
     //
   } else if (req.url === '/demos/validator/iframe/error') {
-    iframes.showDir(res, __dirname + '/../data/output/error/');
+    iframes.showDir(res, __dirname + '/../model/output/error/');
     //
   } else if (req.url === '/demos/validator/iframe/fail') {
-    iframes.showDir(res, __dirname + '/../data/output/fail/');
+    iframes.showDir(res, __dirname + '/../model/output/fail/');
     //
   } else if (req.url === '/demos/validator/iframe/ignore') {
-    iframes.showDir(res, __dirname + '/../data/output/ignore/');
+    iframes.showDir(res, __dirname + '/../model/output/ignore/');
     //
   } else if (req.url === '/demos/validator/iframe/pass') {
-    iframes.showDir(res, __dirname + '/../data/output/pass/');
+    iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
   }
 });

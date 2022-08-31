@@ -3,7 +3,7 @@ var fsi = require('./fsi.js');
 
 var validator = {
   execute: function () {
-    fs.readdir(__dirname + '/../../data/input/', function (err, files) {
+    fs.readdir(__dirname + '/../../model/input/', function (err, files) {
       if (err) {
         return console.log('Unable to scan directory: ' + err);
       }
@@ -11,7 +11,7 @@ var validator = {
         if (file.includes('.')) {
           if (file.includes('.txt')) {
             var content = fs.readFileSync(
-              __dirname + '/../../data/input/' + file,
+              __dirname + '/../../model/input/' + file,
               'utf8'
             );
             if (
@@ -21,8 +21,8 @@ var validator = {
               content.includes('4')
             ) {
               fsi.move(
-                __dirname + '/../../data/input/' + file,
-                __dirname + '/../../data/output/pass/' + file,
+                __dirname + '/../../model/input/' + file,
+                __dirname + '/../../model/output/pass/' + file,
                 function (err) {
                   if (err) throw err;
                   console.log('Successfully moved!');
@@ -30,8 +30,8 @@ var validator = {
               );
             } else {
               fsi.move(
-                __dirname + '/../../data/input/' + file,
-                __dirname + '/../../data/output/fail/' + file,
+                __dirname + '/../../model/input/' + file,
+                __dirname + '/../../model/output/fail/' + file,
                 function (err) {
                   if (err) throw err;
                   console.log('Successfully moved!');
@@ -40,8 +40,8 @@ var validator = {
             }
           } else {
             fsi.move(
-              __dirname + '/../../data/input/' + file,
-              __dirname + '/../../data/output/ignore/' + file,
+              __dirname + '/../../model/input/' + file,
+              __dirname + '/../../model/output/ignore/' + file,
               function (err) {
                 if (err) throw err;
                 console.log('Successfully moved!');
@@ -50,8 +50,8 @@ var validator = {
           }
         } else {
           fsi.move(
-            __dirname + '/../../data/input/' + file,
-            __dirname + '/../../data/output/error/' + file,
+            __dirname + '/../../model/input/' + file,
+            __dirname + '/../../model/output/error/' + file,
             function (err) {
               if (err) throw err;
               console.log('Successfully moved!');
@@ -63,7 +63,7 @@ var validator = {
   },
   cycle: function () {
     setTimeout(function () {
-      fs.readdir(__dirname + '/../../data/input/', function (err, files) {
+      fs.readdir(__dirname + '/../../model/input/', function (err, files) {
         if (err) {
           return console.log('Unable to scan directory: ' + err);
         }
@@ -71,7 +71,7 @@ var validator = {
           if (file.includes('.')) {
             if (file.includes('.txt')) {
               var content = fs.readFileSync(
-                __dirname + '/../../data/input/' + file,
+                __dirname + '/../../model/input/' + file,
                 'utf8'
               );
               if (
@@ -81,8 +81,8 @@ var validator = {
                 content.includes('4')
               ) {
                 fsi.move(
-                  __dirname + '/../../data/input/' + file,
-                  __dirname + '/../../data/output/pass/' + file,
+                  __dirname + '/../../model/input/' + file,
+                  __dirname + '/../../model/output/pass/' + file,
                   function (err) {
                     if (err) throw err;
                     console.log('Successfully moved!');
@@ -90,8 +90,8 @@ var validator = {
                 );
               } else {
                 fsi.move(
-                  __dirname + '/../../data/input/' + file,
-                  __dirname + '/../../data/output/fail/' + file,
+                  __dirname + '/../../model/input/' + file,
+                  __dirname + '/../../model/output/fail/' + file,
                   function (err) {
                     if (err) throw err;
                     console.log('Successfully moved!');
@@ -100,8 +100,8 @@ var validator = {
               }
             } else {
               fsi.move(
-                __dirname + '/../../data/input/' + file,
-                __dirname + '/../../data/output/ignore/' + file,
+                __dirname + '/../../model/input/' + file,
+                __dirname + '/../../model/output/ignore/' + file,
                 function (err) {
                   if (err) throw err;
                   console.log('Successfully moved!');
@@ -110,8 +110,8 @@ var validator = {
             }
           } else {
             fsi.move(
-              __dirname + '/../../data/input/' + file,
-              __dirname + '/../../data/output/error/' + file,
+              __dirname + '/../../model/input/' + file,
+              __dirname + '/../../model/output/error/' + file,
               function (err) {
                 if (err) throw err;
                 console.log('Successfully moved!');
