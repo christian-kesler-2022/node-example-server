@@ -6,7 +6,7 @@ COPY /src .
 
 EXPOSE 1000/tcp
 
-RUN 'npm install xmllint'
+RUN ['npm','install','xmllint']
 
 RUN 'pwd'
 
