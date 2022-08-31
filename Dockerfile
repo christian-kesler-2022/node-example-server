@@ -12,4 +12,4 @@ COPY /src .
 
 EXPOSE 1000/tcp
 
-CMD ["supervisor", "index.js"]
+CMD ["supervisor", "controller/index.js"]
