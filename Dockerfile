@@ -1,12 +1,12 @@
 FROM node:16.14.2
 
-RUN 'npm install xmllint'
-
 WORKDIR /src
 
 COPY /src .
 
 EXPOSE 1000/tcp
+
+RUN 'npm install xmllint'
 
 RUN 'pwd'
 
