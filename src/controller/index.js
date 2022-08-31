@@ -2,8 +2,8 @@ var http = require('http');
 var fs = require('fs');
 var iframes = require('./utils/iframes.js');
 var generator = require('./utils/generator.js');
-var validator = require('./utils/validator.js');
-var xmllint = require('xmllint');
+var text_validator = require('./utils/text_validator.js');
+var xml_validator = require('./utils/xml_validator.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -61,7 +61,7 @@ var server = http.createServer(function (req, res) {
     //
   } else if (req.url === '/demos/text-validator/start') {
     generator.cycle();
-    validator.cycle();
+    text_validator.cycle();
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<script>window.location.href="/demos/text-validator";</script>');
     res.end();
@@ -87,23 +87,7 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/../views/demos/xml-validator/xml-validator.html');
     //
   } else if (req.url === '/demos/xml-validator/start') {
-    var xmlData = fs.readFileSync(__dirname + '/../model/xml/data.xml', 'utf8');
-    var schemaData = fs.readFileSync(
-      __dirname + '/../model/xml/schema.xsd',
-      'utf8'
-    );
-
-    var result = xmllint.validateXML({
-      xml: xmlData,
-      schema: schemaData,
-    });
-
-    if (!result.errors) {
-      console.log('looks good!');
-    } else {
-      console.log('errors!');
-      console.log(result.errors);
-    }
+    xml_validator.execute();
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<script>window.location.href="/demos/xml-validator";</script>');
     res.end();

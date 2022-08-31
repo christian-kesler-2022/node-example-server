@@ -1,7 +1,7 @@
 var fs = require('fs');
 var fsi = require('./fsi.js');
 
-var validator = {
+var text_validator = {
   execute: function () {
     fs.readdir(__dirname + '/../../model/input/', function (err, files) {
       if (err) {
@@ -125,4 +125,4 @@ var validator = {
   },
 };
 
-module.exports = validator;
+module.exports = text_validator;
