@@ -3,6 +3,7 @@ var fs = require('fs');
 var iframes = require('./utils/iframes.js');
 var generator = require('./utils/generator.js');
 var validator = require('./utils/validator.js');
+var xmllint = require('xmllint');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -54,20 +55,17 @@ var server = http.createServer(function (req, res) {
   } else if (req.url === '/demos') {
     writePage(res, '/../views/demos/demos.html');
 
-    // Demo pages
+    // Text Validator
   } else if (req.url === '/demos/text-validator') {
     writePage(res, '/../views/demos/text-validator/text-validator.html');
     //
   } else if (req.url === '/demos/text-validator/start') {
     generator.cycle();
     validator.cycle();
-
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<script>window.location.href="/demos/text-validator";</script>');
     res.end();
     //
-
-    // Validator Demo
   } else if (req.url === '/demos/text-validator/iframe/input') {
     iframes.showDir(res, __dirname + '/../model/input/');
     //
@@ -81,6 +79,48 @@ var server = http.createServer(function (req, res) {
     iframes.showDir(res, __dirname + '/../model/output/ignore/');
     //
   } else if (req.url === '/demos/text-validator/iframe/pass') {
+    iframes.showDir(res, __dirname + '/../model/output/pass/');
+    //
+
+    // XML Validator
+  } else if (req.url === '/demos/xml-validator') {
+    writePage(res, '/../views/demos/xml-validator/xml-validator.html');
+    //
+  } else if (req.url === '/demos/xml-validator/start') {
+    var xmlData = fs.readFileSync(__dirname + '/../model/xml/data.xml', 'utf8');
+    var schemaData = fs.readFileSync(
+      __dirname + '/../model/xml/schema.xsd',
+      'utf8'
+    );
+
+    var result = xmllint.validateXML({
+      xml: xmlData,
+      schema: schemaData,
+    });
+
+    if (!result.errors) {
+      console.log('looks good!');
+    } else {
+      console.log('errors!');
+      console.log(result.errors);
+    }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<script>window.location.href="/demos/xml-validator";</script>');
+    res.end();
+    //
+  } else if (req.url === '/demos/xml-validator/iframe/input') {
+    iframes.showDir(res, __dirname + '/../model/input/');
+    //
+  } else if (req.url === '/demos/xml-validator/iframe/error') {
+    iframes.showDir(res, __dirname + '/../model/output/error/');
+    //
+  } else if (req.url === '/demos/xml-validator/iframe/fail') {
+    iframes.showDir(res, __dirname + '/../model/output/fail/');
+    //
+  } else if (req.url === '/demos/xml-validator/iframe/ignore') {
+    iframes.showDir(res, __dirname + '/../model/output/ignore/');
+    //
+  } else if (req.url === '/demos/xml-validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
   }
