@@ -2,8 +2,12 @@
   This demo will showcase some file validation. The server has a couple
   directories of interest, chiefly 'input' and 'output'. 'output' has four
   subfolders, 'error', 'fail', 'ignore', and 'pass'. Below you can see several
-  readouts of the directories in question involving the files within. Click the
-  button below to initiate the cycler demo.
+  readouts of the directories in question involving the files within. The
+  directory iframes always refresh every 1 second. Once the demo starts, a
+  generator script creates a text file with five random characters every two
+  seconds, and a validator script checks and moves everything in the input
+  directory every eight seconds. The Click the button below to initiate the
+  demo.
 </p>
 
 <hr />
@@ -18,7 +22,8 @@
   <div class="row justify-content-md-center">
     <div class="col">
       <center>
-        <h3>Input Directory (/root/project/data/input on host)</h3>
+        <h3>Input Directory</h3>
+        <i>(/root/project/data/input on host)</i><br />
         <iframe
           src="/demos/validator/iframe/input"
           height="400"
@@ -34,7 +39,8 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h3>Error (files with no extension)</h3>
+        <h3>Error</h3>
+        <i>(files with no extension)</i>
         <iframe
           src="/demos/validator/iframe/error"
           height="400"
@@ -43,7 +49,8 @@
         ></iframe>
       </div>
       <div class="col">
-        <h3>Fail (.txt does not contain 1, 2, 3, or 4)</h3>
+        <h3>Fail</h3>
+        <i>(.txt does not contain 1, 2, 3, or 4)</i>
         <iframe
           src="/demos/validator/iframe/fail"
           height="400"
@@ -54,7 +61,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <h3>Ignore (has extension but is not .txt file)</h3>
+        <h3>Ignore</h3>
+        <i>(has extension but is not .txt file)</i>
         <iframe
           src="/demos/validator/iframe/ignore"
           height="400"
@@ -63,7 +71,8 @@
         ></iframe>
       </div>
       <div class="col">
-        <h3>Pass (.txt file that contains 1, 2, 3, or 4)</h3>
+        <h3>Pass</h3>
+        <i>(.txt file that contains 1, 2, 3, or 4)</i>
         <iframe
           src="/demos/validator/iframe/pass"
           height="400"
