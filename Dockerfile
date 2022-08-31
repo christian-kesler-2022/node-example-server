@@ -1,5 +1,7 @@
 FROM node:16.14.2
 
+RUN 'npm install xmllint'
+
 WORKDIR /src
 
 COPY /src .
