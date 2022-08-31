@@ -22,7 +22,7 @@ git pull origin main
 
 docker build . -t project
 
-docker run -d -p 1000:1000 -v /root/project/data:/data project
+docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
 
   <hr>
   
@@ -40,8 +40,8 @@ docker run -d -p 1000:1000 -v /root/project/data:/data project
   
   <hr>
 
-  docker build . -t project
+docker build . -t project
 
-  docker run -d -p 1000:1000 -v /root/project/data:/data project
+docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
 
 </code>
