@@ -120,7 +120,7 @@ var text_validator = {
           }
         });
       });
-      validator.cycle();
+      text_validator.cycle();
     }, 8000);
   },
 };
