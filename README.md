@@ -18,7 +18,7 @@ git branch -m main
 
 git remote add origin https://github.com/christian-kesler-2022/node-example-server
 
-git pull origin mvc-conversion
+git pull origin main
 
 docker build . -t project
 
