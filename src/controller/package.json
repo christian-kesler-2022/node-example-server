@@ -3,5 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "libxml": "^0.0.7",
+    "libxml-xsd": "^0.5.2"
   }
 }
