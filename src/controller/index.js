@@ -63,7 +63,7 @@ var server = http.createServer(function (req, res) {
     validator.cycle();
 
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<script>window.location.href="/demos/validator";</script>');
+    res.write('<script>window.location.href="/demos/text-validator";</script>');
     res.end();
     //
 
