@@ -12,6 +12,4 @@ COPY /src .
 
 EXPOSE 1000/tcp
 
-RUN cd controller
-
-CMD ["supervisor", "controller/index.js"]
+CMD ["node", "controller/index.js"]
