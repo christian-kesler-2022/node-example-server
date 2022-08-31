@@ -6,8 +6,12 @@ RUN npm install npm@latest -g
 
 RUN npm install xmllint
 
+RUN npm install supervisor
+
 COPY /src .
 
 EXPOSE 1000/tcp
 
-CMD ["node", "controller/index.js"]
+RUN cd controller
+
+CMD ["supervisor", "index.js"]
