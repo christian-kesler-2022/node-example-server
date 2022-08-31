@@ -14,7 +14,12 @@ var validator = {
               __dirname + '/../../data/input/' + file,
               'utf8'
             );
-            if (content.includes('3')) {
+            if (
+              content.includes('1') ||
+              content.includes('2') ||
+              content.includes('3') ||
+              content.includes('4')
+            ) {
               fsi.move(
                 __dirname + '/../../data/input/' + file,
                 __dirname + '/../../data/output/pass/' + file,
