@@ -55,10 +55,10 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/../views/demos/demos.html');
 
     // Demo pages
-  } else if (req.url === '/demos/validator') {
+  } else if (req.url === '/demos/text-validator') {
     writePage(res, '/../views/demos/text-validator/text-validator.html');
     //
-  } else if (req.url === '/demos/validator/start') {
+  } else if (req.url === '/demos/text-validator/start') {
     generator.cycle();
     validator.cycle();
 
@@ -68,19 +68,19 @@ var server = http.createServer(function (req, res) {
     //
 
     // Validator Demo
-  } else if (req.url === '/demos/validator/iframe/input') {
+  } else if (req.url === '/demos/text-validator/iframe/input') {
     iframes.showDir(res, __dirname + '/../model/input/');
     //
-  } else if (req.url === '/demos/validator/iframe/error') {
+  } else if (req.url === '/demos/text-validator/iframe/error') {
     iframes.showDir(res, __dirname + '/../model/output/error/');
     //
-  } else if (req.url === '/demos/validator/iframe/fail') {
+  } else if (req.url === '/demos/text-validator/iframe/fail') {
     iframes.showDir(res, __dirname + '/../model/output/fail/');
     //
-  } else if (req.url === '/demos/validator/iframe/ignore') {
+  } else if (req.url === '/demos/text-validator/iframe/ignore') {
     iframes.showDir(res, __dirname + '/../model/output/ignore/');
     //
-  } else if (req.url === '/demos/validator/iframe/pass') {
+  } else if (req.url === '/demos/text-validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
   }
