@@ -7,7 +7,7 @@
 COMMANDS:
 
 <code>
-  
+
 mkdir project
 
 cd project
@@ -24,21 +24,21 @@ docker build . -t project
 
 docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
 
-  <hr>
-  
-  docker ps
-  
-  docker kill ${ID}
-  
-  docker ps
-  
-  docker image ls
-  
-  docker image rm -f project
-  
-  docker image ls
-  
-  <hr>
+<hr>
+
+docker ps
+
+docker kill ${ID}
+
+docker ps
+
+docker image ls
+
+docker image rm -f project
+
+docker image ls
+
+<hr>
 
 docker build . -t project
 
