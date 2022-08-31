@@ -23,5 +23,25 @@ git pull origin main
 docker build . -t project
 
 docker run -d -p 1000:1000 -v /root/project/data:/data project
+
+  <hr>
   
+  docker ps
+  
+  docker kill ${ID}
+  
+  docker ps
+  
+  docker image ls
+  
+  docker image rm -f project
+  
+  docker image ls
+  
+  <hr>
+
+  docker build . -t project
+
+  docker run -d -p 1000:1000 -v /root/project/data:/data project
+
 </code>
