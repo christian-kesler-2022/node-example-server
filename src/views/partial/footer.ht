@@ -80,7 +80,7 @@
                   <a href="https://stackblitz.com/" class="text-reset">Stackblitz IDE</a>
                 </p>
                 <p>
-                  <a href="https://github.com/christian-kesler-2022/node-example-server" class="text-reset">GitHub Repository</a>
+                  <a href="https://youtu.be/Utf-A4rODH8" class="text-reset">Container Demo</a>
                 </p>
               </div>
               <!-- Grid column -->
@@ -93,8 +93,8 @@
                   <i class="fas fa-envelope me-3"></i>
                   christian.kesler.2022@gmail.com
                 </p>
-                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                <p><i class="fas fa-phone me-3"></i>
+                github: christian-kesler-2022</p>
               </div>
               <!-- Grid column -->
             </div>
@@ -103,12 +103,9 @@
         </section>
         <!-- Section: Links  -->
 
-        <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-          © 2021 Copyright:
-          <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+          <a class="text-reset fw-bold" href="https://github.com/christian-kesler-2022/node-example-server">View this project on Github</a>
         </div>
-        <!-- Copyright -->
       </footer>
       <!-- Footer -->
 

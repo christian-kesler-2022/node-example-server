@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "supervisor": "^0.12.0",
-    "xmllint": "0.1.1"
+    "xmllint": "^0.1.1"
   }
 }
