@@ -6,6 +6,7 @@ var iframes = require('./utils/iframes.js');
 var generator = require('./utils/generator.js');
 var text_validator = require('./utils/text_validator.js');
 var xml_validator = require('./utils/xml_validator.js');
+var uploader = require('./utils/uploader.js');
 
 console.log(`Hello Node.js v${process.versions.node}!`);
 console.log(__dirname);
@@ -115,6 +116,8 @@ var server = http.createServer(function (req, res) {
   } else if (req.url === '/demos/xml-validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
+
+    // File transfer endpoints
   } else if (req.url === '/download/invalid') {
     writePage(res, '/../views/errors/download.html');
     //
@@ -133,6 +136,26 @@ var server = http.createServer(function (req, res) {
       res.write('<script>window.location.href="/download/invalid";</script>');
       res.end();
     }
+    //
+  } else if (req.url === '/upload') {
+    console.log('SUCCESS! upload url reached ');
+    if (req.method == 'POST') {
+      try {
+        uploader.save(req);
+
+        // This is here incase any errors occur
+      } catch (error) {
+        res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
+        res.end('Server Borked');
+
+        // error is object but response.write require string/buffer
+        console.dir(error);
+        return;
+      }
+    }
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<script>window.location.href="/demos/xml-validator";</script>');
+    res.end();
     //
   }
 });
