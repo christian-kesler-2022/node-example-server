@@ -1,7 +1,5 @@
 <h1>Example Node Server</h1>
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com)
-
 <h2>Description</h2>
 <p>This project is a web server built in node to hold short guides/resources on technologies used in the project</p>
 <h2>Getting Started</h2>
