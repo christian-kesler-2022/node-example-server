@@ -15,7 +15,7 @@ var xml_validator = {
             'utf8'
           );
           var schemaPath = fs.readFileSync(
-            __dirname + '/../../../schemapath.txt',
+            __dirname + '/schemapath.txt',
             'utf8'
           );
           var schemaData = fs.readFileSync(schemaPath, 'utf8');
@@ -92,7 +92,7 @@ var xml_validator = {
               'utf8'
             );
             var schemaPath = fs.readFileSync(
-              __dirname + '/../../../schemapath.txt',
+              __dirname + '/schemapath.txt',
               'utf8'
             );
             var schemaData = fs.readFileSync(schemaPath, 'utf8');
