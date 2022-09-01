@@ -19,7 +19,7 @@ git branch -m main
 
 git remote add origin https://github.com/christian-kesler-2022/node-example-server
 
-git pull origin main
+git pull origin upload-file
 
 docker build . -t project
 
