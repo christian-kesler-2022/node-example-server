@@ -96,7 +96,7 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/../views/demos/xml-validator/xml-validator.html');
     //
   } else if (req.url === '/demos/xml-validator/start') {
-    xml_validator.execute();
+    xml_validator.cycle();
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<script>window.location.href="/demos/xml-validator";</script>');
     res.end();
