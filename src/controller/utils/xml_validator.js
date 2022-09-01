@@ -1,7 +1,6 @@
 var fs = require('fs');
 var fsi = require('./fsi.js');
 var xmllint = require('xmllint');
-const text_validator = require('./text_validator.js');
 
 var xml_validator = {
   execute: function () {
