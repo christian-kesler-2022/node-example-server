@@ -41,8 +41,11 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/../views/guides/guides.html');
 
     // Guide pages
-  } else if (req.url === '/guides/nodejs') {
-    writePage(res, '/../views/guides/nodejs/nodejs.html');
+  } else if (req.url === '/guides/nodejs/getting-started') {
+    writePage(res, '/../views/guides/nodejs/getting-started.html');
+    //
+  } else if (req.url === '/guides/nodejs/xmllint') {
+    writePage(res, '/../views/guides/nodejs/xmllint.html');
     //
   } else if (req.url === '/guides/docker/getting-started') {
     writePage(res, '/../views/guides/docker/getting-started.html');

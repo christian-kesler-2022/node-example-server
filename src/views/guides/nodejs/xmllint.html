@@ -1,0 +1,38 @@
+<h2>NodeJS - the xmllint Package</h2>
+<hr />
+
+<h3>Install</h3>
+<p>To get xmllint on your system, run the following to install:</p>
+<code>npm install xmllint</code>
+<hr />
+
+<h3>Instantiation</h3>
+<p>
+  Once you have it installed, you can start declaring it in your various js
+  files like so:
+</p>
+<code>var xmllint = require('xmllint');</code>
+<hr />
+
+<h3>Usage</h3>
+<p>
+  This allows us to access functions elsewhere in our program using dot
+  notation, like this:
+</p>
+<code>var result = xmllint.validateXML({</code><br />
+<code>xml: xmlData,</code><br />
+<code>schema: schemaData,</code><br />
+<code>},</code><br />
+<code>function (err) { if (err) throw (err) }</code><br />
+<code>);</code><br />
+
+<p>
+  After executing the above code, the result variable will indicate the status
+  of the validation. If results.errors exists, the validation failed and the
+  result.errors value will indicate why. If results.errors does not exist, then
+  validation succeeded.
+</p>
+<i>
+  NOTE: the xmlData and schemaData variables must be strings of the file
+  contents, not a file path.
+</i>
