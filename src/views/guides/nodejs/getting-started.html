@@ -1,15 +1,15 @@
 <h2>NodeJS - an explanatory Cheat Sheet</h2>
 <hr />
+
 <h3>Setup</h3>
 <i
   >(note, if you want to read the official documentation, check out the footer
   for relevant links)</i
 >
-<hr />
 <p>
   Usually these kinds of things are kicked off with an entire section or
   paragraph talking about "what exactly is nodejs?". I'm not going to do that.
-  NodeJS interprets and executes the Javascript programming lagnuage, just like
+  NodeJS interprets and executes the Javascript programming language, just like
   Python does for the Python programming language. That's really all it is.
 </p>
 <p>
@@ -31,6 +31,7 @@
   installing an IDE, there are some cool web based options like
   <a href="https://stackblitz.com/">Stackblitz</a> that you can use.
 </p>
+<hr />
 
 <h3>Getting Started</h3>
 <p>
@@ -54,6 +55,7 @@
   You should get some output that looks like "Hello Node.js v16.14.2!". If that
   doesn't work, then something in Node isn't working properly.
 </p>
+<hr />
 
 <h3>Making a Server</h3>
 <p>
@@ -71,17 +73,17 @@
 <code>server.listen(1000, '127.0.0.1');</code>
 
 <p>
-  This is going to do a couple of things. Firstly, we require the http
-  module/library/class in order to access the web server functionality built
-  into node. Don't worry about installing anything else in addition to Node,
-  this one comes built in. After we have it loaded in, we can access the
-  createServer function and define some handling within that server. It takes
-  two inputs, req (request) and res (response). These are the basic building
-  blocks used for handling network traffic. I added a line that prints the url
-  accessed by the user to the console, but that's more for development and
-  debugging than core functionality. After that the if statement checks the url
-  the user is accessing. If it is the homepage, then we can write to the
-  response some plain text that the user will see.
+  This is going to do a couple of things. Firstly, we require the http package
+  in order to access the web server functionality built into node. Don't worry
+  about installing anything else in addition to Node, this one comes built in.
+  After we have it loaded in, we can access the createServer function and define
+  some handling within that server. It takes two inputs, req (request) and res
+  (response). These are the basic building blocks used for handling network
+  traffic. I added a line that prints the url accessed by the user to the
+  console, but that's more for development and debugging than core
+  functionality. After that the if statement checks the url the user is
+  accessing. If it is the homepage, then we can write to the response some plain
+  text that the user will see.
 </p>
 <p>
   The last thing at the bottom boots the server up and sets it to listen at a
@@ -94,6 +96,7 @@
 </p>
 <code>127.0.0.1:1000</code>
 <p>It should load up pretty quick and show you "Your first Node page".</p>
+<hr />
 
 <h3>Better pages</h3>
 <p>

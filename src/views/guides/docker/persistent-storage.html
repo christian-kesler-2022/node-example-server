@@ -2,11 +2,11 @@
 <p>
   Docker executes programs within containers, which can be great for security
   purposes, but can be rough if files are written to the container and lost upon
-  termination of the process. This demo will show you how to write files to host
-  memory from within the container.
+  termination of the process.
 </p>
 <p>
-  If you have a file structure in your application that you want to use, then
-  use the following command when you want to run your Docker container
+  If you want to write files to host memory from within the container and have a
+  file structure in your application that you want to use, then use the
+  following command when you want to run your Docker container:
 </p>
 <code>docker run -v ${HOST PATH}:${CONTAINER PATH}</code>
