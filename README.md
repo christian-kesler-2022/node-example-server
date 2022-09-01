@@ -19,11 +19,11 @@ git branch -m main
 
 git remote add origin https://github.com/christian-kesler-2022/node-example-server
 
-git pull origin main
+git pull origin xml-cyclic
 
 docker build . -t project
 
-docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
+docker run -it -p 1000:1000 -v /root/project/src/model:/src/model project
 
 <hr>
 
