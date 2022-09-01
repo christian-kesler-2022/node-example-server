@@ -1,1 +1,0 @@
-/root/project/src/model/xml/schema.xsd
