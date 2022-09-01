@@ -110,6 +110,21 @@ var server = http.createServer(function (req, res) {
   } else if (req.url === '/demos/xml-validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
+  } else if (req.url === '/download') {
+    const file = fs.createWriteStream('file.jpg');
+    const request = http.get(
+      'http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg',
+      function (response) {
+        response.pipe(file);
+
+        // after download completed close filestream
+        file.on('finish', () => {
+          file.close();
+          console.log('Download Completed');
+        });
+      }
+    );
+    //
   }
 });
 
