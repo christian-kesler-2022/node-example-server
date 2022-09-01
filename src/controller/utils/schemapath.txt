@@ -1,1 +1,1 @@
-/schema.xsd
+schema.xsd
