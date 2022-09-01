@@ -1,5 +1,7 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
+const url = require('url');
+
 var iframes = require('./utils/iframes.js');
 var generator = require('./utils/generator.js');
 var text_validator = require('./utils/text_validator.js');
@@ -30,6 +32,9 @@ function writePage(res, file) {
 }
 
 var server = http.createServer(function (req, res) {
+  const queryObject = url.parse(req.url, true).query;
+  console.log(queryObject);
+
   console.log('requested url: ' + req.url);
 
   // Homepage
@@ -109,6 +114,25 @@ var server = http.createServer(function (req, res) {
     //
   } else if (req.url === '/demos/xml-validator/iframe/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
+    //
+  } else if (req.url === '/download/invalid') {
+    writePage(res, '/../views/errors/download.html');
+    //
+  } else if (req.url.includes('/download')) {
+    try {
+      const rs = fs.createReadStream(queryObject.dir + '/' + queryObject.file);
+      res.setHeader(
+        'Content-Disposition',
+        'attachment;filename=' + queryObject.file
+      );
+      rs.pipe(res);
+    } catch (e) {
+      console.log('invalid download request');
+      console.log(e);
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.write('<script>window.location.href="/download/invalid";</script>');
+      res.end();
+    }
     //
   }
 });

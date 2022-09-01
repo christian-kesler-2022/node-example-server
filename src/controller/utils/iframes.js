@@ -16,10 +16,18 @@ module.exports = {
         );
         res.write(content);
 
-        // res.write("<a href=''>Refresh</a><br>");
+        res.write("<a href=''>Refresh</a><br>");
         res.write('================<br>');
         files.forEach(function (file) {
-          res.write('\t' + file + '<br>');
+          res.write(
+            '\t<a href="/download?dir=' +
+              dir +
+              '&file=' +
+              file +
+              '">' +
+              file +
+              '</a><br>'
+          );
         });
         res.write('================');
       }
