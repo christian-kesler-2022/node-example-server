@@ -14,10 +14,11 @@ var xml_validator = {
             __dirname + '/../../model/input/' + file,
             'utf8'
           );
-          var schemaData = fs.readFileSync(
-            __dirname + '/../../model/xml/schema.xsd',
+          var schemaPath = fs.readFileSync(
+            __dirname + '/../../../schemapath.txt',
             'utf8'
           );
+          var schemaData = fs.readFileSync(schemaPath, 'utf8');
 
           var result = xmllint.validateXML(
             {
