@@ -11,7 +11,7 @@ module.exports = {
       } else {
         var content = fs.readFileSync(
           __dirname +
-            '/../../views/demos/text-validator/text-validator-iframe.html',
+            '/../../views/demos/xml-validator/xml-validator-iframe.html',
           'utf8'
         );
         res.write(content);
