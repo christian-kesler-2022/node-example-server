@@ -1,1 +1,1 @@
-/home/projects/example-node-server/src/model/xml/schema.xsd
+/root/project/src/model/xml/schema.xsd
