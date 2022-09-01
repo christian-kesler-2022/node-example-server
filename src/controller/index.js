@@ -111,9 +111,9 @@ var server = http.createServer(function (req, res) {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
   } else if (req.url === '/download') {
-    const file = fs.createWriteStream('file.jpg');
+    const file = fs.createWriteStream('file.jpeg');
     const request = http.get(
-      'http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg',
+      'http://cdn.searchenginejournal.com/wp-content/uploads/2019/08/c573bf41-6a7c-4927-845c-4ca0260aad6b-1520x800.jpeg',
       function (response) {
         response.pipe(file);
 
