@@ -58,7 +58,7 @@
       <!-- Jumbotron -->
       <div class="p-5 text-center bg-light">
         <h1 class="mb-3">Example Node Server</h1>
-        <h4 class="mb-3">Created by Christian Kesler</h4>
+        <h4 class="mb-3">A File Validator and Technical Guide</h4>
       </div>
       <!-- Jumbotron -->
     </header>
