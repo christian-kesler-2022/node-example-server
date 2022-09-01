@@ -154,7 +154,7 @@ var xml_validator = {
         });
       });
       xml_validator.cycle();
-    }, 8000);
+    }, 1000);
   },
 };
 
