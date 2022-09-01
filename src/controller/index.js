@@ -65,30 +65,30 @@ var server = http.createServer(function (req, res) {
     writePage(res, '/../views/demos/demos.html');
 
     // Text Validator
-  } else if (req.url === '/demos/text-validator') {
-    writePage(res, '/../views/demos/text-validator/text-validator.html');
-    //
-  } else if (req.url === '/demos/text-validator/start') {
-    generator.cycle();
-    text_validator.cycle();
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<script>window.location.href="/demos/text-validator";</script>');
-    res.end();
-    //
-  } else if (req.url === '/demos/text-validator/iframe/input') {
-    iframes.showDir(res, __dirname + '/../model/input/');
-    //
-  } else if (req.url === '/demos/text-validator/iframe/error') {
-    iframes.showDir(res, __dirname + '/../model/output/error/');
-    //
-  } else if (req.url === '/demos/text-validator/iframe/fail') {
-    iframes.showDir(res, __dirname + '/../model/output/fail/');
-    //
-  } else if (req.url === '/demos/text-validator/iframe/ignore') {
-    iframes.showDir(res, __dirname + '/../model/output/ignore/');
-    //
-  } else if (req.url === '/demos/text-validator/iframe/pass') {
-    iframes.showDir(res, __dirname + '/../model/output/pass/');
+    // } else if (req.url === '/demos/text-validator') {
+    //   writePage(res, '/../views/demos/text-validator/text-validator.html');
+    //   //
+    // } else if (req.url === '/demos/text-validator/start') {
+    //   generator.cycle();
+    //   text_validator.cycle();
+    //   res.writeHead(200, { 'Content-Type': 'text/html' });
+    //   res.write('<script>window.location.href="/demos/text-validator";</script>');
+    //   res.end();
+    //   //
+    // } else if (req.url === '/demos/text-validator/iframe/input') {
+    //   iframes.showDir(res, __dirname + '/../model/input/');
+    //   //
+    // } else if (req.url === '/demos/text-validator/iframe/error') {
+    //   iframes.showDir(res, __dirname + '/../model/output/error/');
+    //   //
+    // } else if (req.url === '/demos/text-validator/iframe/fail') {
+    //   iframes.showDir(res, __dirname + '/../model/output/fail/');
+    //   //
+    // } else if (req.url === '/demos/text-validator/iframe/ignore') {
+    //   iframes.showDir(res, __dirname + '/../model/output/ignore/');
+    //   //
+    // } else if (req.url === '/demos/text-validator/iframe/pass') {
+    //   iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
 
     // XML Validator
