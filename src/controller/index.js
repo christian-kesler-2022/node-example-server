@@ -120,9 +120,7 @@ var server = http.createServer(function (req, res) {
     //
   } else if (req.url.includes('/download')) {
     try {
-      const rs = fs.createReadStream(
-        '../model/output/' + queryObject.dir + '/' + queryObject.file
-      );
+      const rs = fs.createReadStream(queryObject.dir + '/' + queryObject.file);
       res.setHeader(
         'Content-Disposition',
         'attachment;filename=' + queryObject.file
