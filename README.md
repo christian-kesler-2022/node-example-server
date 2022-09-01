@@ -21,7 +21,7 @@ git pull origin main
 
 docker build . -t project
 
-docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
+docker run -it -p 1000:1000 -v /root/project/src/model:/src/model project
 
 <hr>
 
