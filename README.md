@@ -5,42 +5,25 @@
 <h2>Getting Started</h2>
 <p>You can run these commands from most unix terminals to start up the server in a container with persistent storage on the host</p>
 
-<code>
+    mkdir project
+    cd project
+    git init
+    git branch -m main
+    git remote add origin https://github.com/christian-kesler-2022/node-example-server
+    git pull origin main
+    docker build . -t project
+    docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
 
-mkdir project
+<br>
 
-cd project
+    docker ps
+    docker kill ${ID}
+    docker ps
+    docker image ls
+    docker image rm -f project
+    docker image ls
 
-git init
+<br>
 
-git branch -m main
-
-git remote add origin https://github.com/christian-kesler-2022/node-example-server
-
-git pull origin main
-
-docker build . -t project
-
-docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
-
-<hr>
-
-docker ps
-
-docker kill ${ID}
-
-docker ps
-
-docker image ls
-
-docker image rm -f project
-
-docker image ls
-
-<hr>
-
-docker build . -t project
-
-docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
-
-</code>
+    docker build . -t project
+    docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
