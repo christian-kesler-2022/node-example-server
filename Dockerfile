@@ -4,8 +4,10 @@ WORKDIR /src
 
 COPY /src .
 
-RUN apt install tar
-RUN apt install make
+RUN     yum -y update && \
+  yum -y install wget && \
+  yum install -y tar.x86_64 && \
+  yum clean all
 
 RUN tar -xzf node-v16.16.0.tar.gz
 RUN cd node-v16.16.0
