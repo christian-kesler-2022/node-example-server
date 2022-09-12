@@ -2,12 +2,6 @@ FROM scratch
 
 WORKDIR /src
 
-RUN apt install npm
-
-RUN npm install npm@latest --location=global
-RUN npm install xmllint
-RUN npm install -g supervisor
-
 COPY /src .
 
 RUN apt install tar
