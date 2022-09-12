@@ -1,3 +1,5 @@
+FROM scratch
+
 WORKDIR /src
 
 RUN npm install npm@latest --location=global
