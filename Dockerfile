@@ -6,12 +6,11 @@ RUN npm install npm@latest --location=global
 RUN npm install xmllint
 RUN npm install -g supervisor
 
-RUN apt-get update || : && apt-get install python -y
+RUN apt-get update || : && apt-get -y install python -y
 RUN python -V
 
 RUN apt update && apt -y full-upgrade
-RUN apt install python-pip
-RUN y
+RUN apt -y install python-pip
 RUN pip install --upgrade pip
 
 RUN pip install Django
