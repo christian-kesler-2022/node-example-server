@@ -10,7 +10,9 @@
     git init
     git branch -m main
     git remote add origin https://github.com/christian-kesler-2022/node-example-server
-    git pull origin main
+    git pull origin offline-install
+    curl https://nodejs.org/dist/v16.16.0/node-v16.16.0.tar.gz > src/node-v16.16.0.tar.gz
+    curl https://nodejs.org/dist/v16.14.0/node-v16.14.0.tar.gz > src/node-v16.14.0.tar.gz
     docker build . -t project
     docker run -d -p 1000:1000 -v /root/project/src/model:/src/model project
 

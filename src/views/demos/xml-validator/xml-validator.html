@@ -1,3 +1,38 @@
+<script>
+  window.onload = function () {
+    function populateAll() {
+      populate('input');
+      populate('error');
+      populate('fail');
+      populate('ignore');
+      populate('pass');
+    }
+    setInterval(populateAll, 100);
+  };
+
+  function show(data, directory) {
+    document.getElementById(directory).innerHTML = '';
+    data.forEach(function (item) {
+      document.getElementById(directory).innerHTML +=
+        "<a href='" + item.link + "'>" + item.name + '</a>';
+      document.getElementById(directory).innerHTML += '<br>';
+    });
+  }
+
+  function populate(directory) {
+    fetch('/api/dir/' + directory)
+      .then((response) => response.json())
+      .then((data) => show(data, directory));
+  }
+</script>
+<style>
+  .dir {
+    border: 2px solid grey;
+    background-color: lightgrey;
+    overflow-y: scroll;
+    height: 256px;
+  }
+</style>
 <p>
   This demo will showcase some xml validation. The server has a couple
   directories of interest, chiefly 'input' and 'output'. 'output' has four
@@ -8,12 +43,6 @@
   validator executes in the background every eight seconds.
 </p>
 
-<!-- <hr />
-<center>
-  <a href="/demos/xml-validator/start"
-    ><button class="btn btn-primary">Execute XML Validator Demo</button></a
-  >
-</center> -->
 <hr />
 
 <div class="container">
@@ -22,14 +51,11 @@
       <center>
         <h3>Input Directory</h3>
         <br />
+        <button onclick="populate('pass')">Populate Button</button>
+        <br />
         <i>(/root/project/data/input on host)</i>
         <br />
-        <iframe
-          src="/demos/xml-validator/iframe/input"
-          height="400"
-          width="800"
-          frameborder="1"
-        ></iframe>
+        <div class="dir" id="input"></div>
         <br />
         <b>Upload to input</b>
         <form action="/upload" method="post" enctype="multipart/form-data">
@@ -49,24 +75,14 @@
         <br />
         <i>(files that cause crashes)</i>
         <br />
-        <iframe
-          src="/demos/xml-validator/iframe/error"
-          height="400"
-          width="400"
-          frameborder="1"
-        ></iframe>
+        <div class="dir" id="error"></div>
       </div>
       <div class="col">
         <h3>Fail</h3>
         <br />
         <i>(xml data did not match schema)</i>
         <br />
-        <iframe
-          src="/demos/xml-validator/iframe/fail"
-          height="400"
-          width="400"
-          frameborder="1"
-        ></iframe>
+        <div class="dir" id="fail"></div>
       </div>
     </div>
     <div class="row">
@@ -75,24 +91,14 @@
         <br />
         <i>(file is not xml)</i>
         <br />
-        <iframe
-          src="/demos/xml-validator/iframe/ignore"
-          height="400"
-          width="400"
-          frameborder="1"
-        ></iframe>
+        <div class="dir" id="ignore"></div>
       </div>
       <div class="col">
         <h3>Pass</h3>
         <br />
         <i>(xml files that match the schema)</i>
         <br />
-        <iframe
-          src="/demos/xml-validator/iframe/pass"
-          height="400"
-          width="400"
-          frameborder="1"
-        ></iframe>
+        <div class="dir" id="pass"></div>
       </div>
     </div>
   </div>
