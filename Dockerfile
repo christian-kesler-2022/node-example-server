@@ -8,6 +8,8 @@ RUN npm install xmllint
 
 RUN npm install -g supervisor
 
+RUN apt-get update || : && apt-get install python -y
+
 COPY /src .
 
 EXPOSE 1000/tcp
