@@ -14,7 +14,7 @@
     document.getElementById(directory).innerHTML = '';
     data.forEach(function (item) {
       document.getElementById(directory).innerHTML +=
-        "<a href='" + item.link + "'>" + item.name + '</a>';
+        "<a target='_blank' href='" + item.link + "'>" + item.name + '</a>';
       document.getElementById(directory).innerHTML += '<br>';
     });
   }
