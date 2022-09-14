@@ -10,7 +10,7 @@ RUN apt-get update || : && apt-get install python -y
 RUN python -V
 
 RUN apt update && apt -y full-upgrade
-RUN sudo apt install python-pip
+RUN apt install python-pip
 RUN pip install --upgrade pip
 
 RUN pip install Django
