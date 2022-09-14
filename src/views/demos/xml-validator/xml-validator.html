@@ -1,3 +1,31 @@
+<script>
+  function updateDiv(divId, data) {
+    document.getElementById(divId).innerHTML = data;
+  }
+
+  // window.onload = function() {
+  //   setInterval({
+  //     fetch('/api/dir/input').then((data) => updateDiv('input', data));
+  //     fetch('/api/dir/error').then((data) => updateDiv('error', data));
+  //     fetch('/api/dir/fail').then((data) => updateDiv('fail', data));
+  //     fetch('/api/dir/ignore').then((data) => updateDiv('ignore', data));
+  //     fetch('/api/dir/pass').then((data) => updateDiv('pass', data));
+  //   }, 4000);
+  // };
+
+  function populate() {
+    fetch('/api/dir/pass')
+      .then((response) => response.json())
+      .then(
+        (data) =>
+          (document.getElementById('input').innerHTML = JSON.stringify(data))
+      );
+
+    // fetch('/api/dir/input').then(document.getElementById('input').innerHTML = 'POPULATED';);
+
+    // document.getElementById('input').innerHTML = 'POPULATED';
+  }
+</script>
 <p>
   This demo will showcase some xml validation. The server has a couple
   directories of interest, chiefly 'input' and 'output'. 'output' has four
@@ -8,12 +36,6 @@
   validator executes in the background every eight seconds.
 </p>
 
-<!-- <hr />
-<center>
-  <a href="/demos/xml-validator/start"
-    ><button class="btn btn-primary">Execute XML Validator Demo</button></a
-  >
-</center> -->
 <hr />
 
 <div class="container">
@@ -22,14 +44,17 @@
       <center>
         <h3>Input Directory</h3>
         <br />
+        <button onclick="populate()">Populate Button</button>
+        <br />
         <i>(/root/project/data/input on host)</i>
         <br />
-        <iframe
+        <div id="input"></div>
+        <!-- <iframe
           src="/demos/xml-validator/iframe/input"
           height="400"
           width="800"
           frameborder="1"
-        ></iframe>
+        ></iframe> -->
         <br />
         <b>Upload to input</b>
         <form action="/upload" method="post" enctype="multipart/form-data">
@@ -49,24 +74,26 @@
         <br />
         <i>(files that cause crashes)</i>
         <br />
-        <iframe
+        <div id="error"></div>
+        <!-- <iframe
           src="/demos/xml-validator/iframe/error"
           height="400"
           width="400"
           frameborder="1"
-        ></iframe>
+        ></iframe> -->
       </div>
       <div class="col">
         <h3>Fail</h3>
         <br />
         <i>(xml data did not match schema)</i>
         <br />
-        <iframe
+        <div id="fail"></div>
+        <!-- <iframe
           src="/demos/xml-validator/iframe/fail"
           height="400"
           width="400"
           frameborder="1"
-        ></iframe>
+        ></iframe> -->
       </div>
     </div>
     <div class="row">
@@ -75,24 +102,26 @@
         <br />
         <i>(file is not xml)</i>
         <br />
-        <iframe
+        <div id="ignore"></div>
+        <!-- <iframe
           src="/demos/xml-validator/iframe/ignore"
           height="400"
           width="400"
           frameborder="1"
-        ></iframe>
+        ></iframe> -->
       </div>
       <div class="col">
         <h3>Pass</h3>
         <br />
         <i>(xml files that match the schema)</i>
         <br />
-        <iframe
+        <div id="pass"></div>
+        <!-- <iframe
           src="/demos/xml-validator/iframe/pass"
           height="400"
           width="400"
           frameborder="1"
-        ></iframe>
+        ></iframe> -->
       </div>
     </div>
   </div>

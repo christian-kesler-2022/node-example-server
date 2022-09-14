@@ -101,19 +101,19 @@ var server = http.createServer(function (req, res) {
     //   res.write('<script>window.location.href="/demos/xml-validator";</script>');
     //   res.end();
     //
-  } else if (req.url === '/demos/xml-validator/iframe/input') {
+  } else if (req.url === '/api/dir/input') {
     iframes.showDir(res, __dirname + '/../model/input/');
     //
-  } else if (req.url === '/demos/xml-validator/iframe/error') {
+  } else if (req.url === '/api/dir/error') {
     iframes.showDir(res, __dirname + '/../model/output/error/');
     //
-  } else if (req.url === '/demos/xml-validator/iframe/fail') {
+  } else if (req.url === '/api/dir/fail') {
     iframes.showDir(res, __dirname + '/../model/output/fail/');
     //
-  } else if (req.url === '/demos/xml-validator/iframe/ignore') {
+  } else if (req.url === '/api/dir/ignore') {
     iframes.showDir(res, __dirname + '/../model/output/ignore/');
     //
-  } else if (req.url === '/demos/xml-validator/iframe/pass') {
+  } else if (req.url === '/api/dir/pass') {
     iframes.showDir(res, __dirname + '/../model/output/pass/');
     //
 
