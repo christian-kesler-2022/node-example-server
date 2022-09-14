@@ -1,31 +1,38 @@
 <script>
-  function updateDiv(divId, data) {
-    document.getElementById(divId).innerHTML = data;
+  window.onload = function () {
+    function populateAll() {
+      populate('input');
+      populate('error');
+      populate('fail');
+      populate('ignore');
+      populate('pass');
+    }
+    setInterval(populateAll, 100);
+  };
+
+  function show(data, directory) {
+    document.getElementById(directory).innerHTML = '';
+    data.forEach(function (item) {
+      document.getElementById(directory).innerHTML +=
+        "<a href='" + item.link + "'>" + item.name + '</a>';
+      document.getElementById(directory).innerHTML += '<br>';
+    });
   }
 
-  // window.onload = function() {
-  //   setInterval({
-  //     fetch('/api/dir/input').then((data) => updateDiv('input', data));
-  //     fetch('/api/dir/error').then((data) => updateDiv('error', data));
-  //     fetch('/api/dir/fail').then((data) => updateDiv('fail', data));
-  //     fetch('/api/dir/ignore').then((data) => updateDiv('ignore', data));
-  //     fetch('/api/dir/pass').then((data) => updateDiv('pass', data));
-  //   }, 4000);
-  // };
-
-  function populate() {
-    fetch('/api/dir/pass')
+  function populate(directory) {
+    fetch('/api/dir/' + directory)
       .then((response) => response.json())
-      .then(
-        (data) =>
-          (document.getElementById('input').innerHTML = JSON.stringify(data))
-      );
-
-    // fetch('/api/dir/input').then(document.getElementById('input').innerHTML = 'POPULATED';);
-
-    // document.getElementById('input').innerHTML = 'POPULATED';
+      .then((data) => show(data, directory));
   }
 </script>
+<style>
+  .dir {
+    border: 2px solid grey;
+    background-color: lightgrey;
+    overflow-y: scroll;
+    height: 256px;
+  }
+</style>
 <p>
   This demo will showcase some xml validation. The server has a couple
   directories of interest, chiefly 'input' and 'output'. 'output' has four
@@ -44,11 +51,11 @@
       <center>
         <h3>Input Directory</h3>
         <br />
-        <button onclick="populate()">Populate Button</button>
+        <button onclick="populate('pass')">Populate Button</button>
         <br />
         <i>(/root/project/data/input on host)</i>
         <br />
-        <div id="input"></div>
+        <div class="dir" id="input"></div>
         <!-- <iframe
           src="/demos/xml-validator/iframe/input"
           height="400"
@@ -74,7 +81,7 @@
         <br />
         <i>(files that cause crashes)</i>
         <br />
-        <div id="error"></div>
+        <div class="dir" id="error"></div>
         <!-- <iframe
           src="/demos/xml-validator/iframe/error"
           height="400"
@@ -87,7 +94,7 @@
         <br />
         <i>(xml data did not match schema)</i>
         <br />
-        <div id="fail"></div>
+        <div class="dir" id="fail"></div>
         <!-- <iframe
           src="/demos/xml-validator/iframe/fail"
           height="400"
@@ -102,7 +109,7 @@
         <br />
         <i>(file is not xml)</i>
         <br />
-        <div id="ignore"></div>
+        <div class="dir" id="ignore"></div>
         <!-- <iframe
           src="/demos/xml-validator/iframe/ignore"
           height="400"
@@ -115,7 +122,7 @@
         <br />
         <i>(xml files that match the schema)</i>
         <br />
-        <div id="pass"></div>
+        <div class="dir" id="pass"></div>
         <!-- <iframe
           src="/demos/xml-validator/iframe/pass"
           height="400"
