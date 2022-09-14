@@ -10,6 +10,8 @@ RUN npm install -g supervisor
 
 RUN apt-get update || : && apt-get install python -y
 
+RUN python -v
+
 COPY /src .
 
 EXPOSE 1000/tcp
