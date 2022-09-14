@@ -6,15 +6,15 @@ RUN npm install npm@latest --location=global
 RUN npm install xmllint
 RUN npm install -g supervisor
 
-RUN apt-get update || : && apt-get -y install python -y
-RUN python -V
+# RUN apt-get update || : && apt-get -y install python -y
+# RUN python -V
 
-RUN apt update && apt -y full-upgrade
-RUN apt -y install python-pip
-RUN pip install --upgrade pip
+# RUN apt update && apt -y full-upgrade
+# RUN apt -y install python-pip
+# RUN pip install --upgrade pip
 
-RUN pip install Django
-RUN pip install Flask
+# RUN pip install Django
+# RUN pip install Flask
 
 COPY /src .
 
