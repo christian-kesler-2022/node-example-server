@@ -161,4 +161,4 @@ var server = http.createServer(function (req, res) {
 });
 
 xml_validator.cycle();
-server.listen(1000);
+server.listen(3000);
